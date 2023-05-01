@@ -7,4 +7,12 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'tasks';
+  userDetails: any;
+
+  onSubmitForm(value:any) {
+    if (value) {
+      this.userDetails = value;
+      
+    }
+  }
 }

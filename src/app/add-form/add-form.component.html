@@ -1,0 +1,142 @@
+<section>
+  <span class="user-add">
+    <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+      <h1>User Form</h1>
+      <span class="username">
+        <select class="selector" formControlName="selector">
+          <option value="Mr">Mr</option>
+          <option value="Miss">Miss</option>
+          <option value="Mrs">Mrs</option>
+        </select>
+
+        <input
+          type="text"
+          class="form-control"
+          name="firstname"
+          formControlName="firstname"
+          placeholder="Firstname"
+          required
+        />
+
+        <input
+          type="text"
+          class="form-control"
+          name="lastname"
+          formControlName="lastname"
+          placeholder="Lastname"
+          required
+        />
+      </span>
+
+      <input
+        type="text"
+        class="form-control"
+        name="email"
+        formControlName="email"
+        placeholder="Email"
+        required
+      />
+
+      <input
+        type="number"
+        class="form-control"
+        name="phoneno"
+        formControlName="phoneno"
+        placeholder="Phone Number"
+        required
+      />
+
+      <span class="passwords">
+        <input
+          type="password"
+          class="form-control"
+          name="password"
+          formControlName="password"
+          placeholder="Password"
+          required
+        />
+
+        <input
+          type="password"
+          class="form-control"
+          name="confirmpassword"
+          formControlName="confirmpassword"
+          placeholder="Confirm Password"
+          required
+        />
+      </span>
+      <span class="address">
+        <input
+          type="text"
+          class="form-control"
+          name="address1"
+          formControlName="address1"
+          placeholder="Address 1"
+          required
+        />
+        <input
+          type="text"
+          class="form-control"
+          name="address2"
+          formControlName="address2"
+          placeholder="Address 2"
+          required
+        />
+        <input
+          type="text"
+          class="form-control"
+          name="city"
+          formControlName="city"
+          placeholder="City"
+          required
+        />
+        <input
+          type="text"
+          class="form-control"
+          name="zipcode"
+          formControlName="zipcode"
+          placeholder="ZIP CODE"
+          required
+        />
+      </span>
+
+      <input
+        type="date"
+        class="form-control"
+        name="dob"
+        formControlName="dob"
+        placeholder="Date of Birth"
+        required
+      />
+      <textarea
+        class="form-control"
+        name="dob"
+        formControlName="dob"
+        placeholder="REMARKS"
+        required
+      ></textarea>
+
+      <span class="gender">
+        <label for="">GENDER :</label>
+        <input type="radio" value="male" id="male" formControlName="gender" />
+        <label for="male">Male</label>
+        <input
+          type="radio"
+          value="female"
+          id="female"
+          formControlName="gender"
+          required
+        />
+        <label for="female">Female</label>
+      </span>
+
+      <span class="terms">
+        <input type="checkbox" id="terms" formControlName="terms" required/>
+        <label for="terms"> I accept the terms and conditions</label>
+      </span>
+
+      <button type="submit" class="submit-btn">Submit</button>
+    </form>
+  </span>
+</section>
+
