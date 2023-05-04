@@ -21,7 +21,7 @@ export class AddFormComponent implements OnInit {
   form() {
     this.userForm = this.fb.group(
       {
-        selector: new FormControl('',
+        selector: new FormControl('Mr',
           [Validators.required]
         ),
         firstname: new FormControl('', [
@@ -79,11 +79,18 @@ export class AddFormComponent implements OnInit {
   }
 
   onSubmit() {
-    let value = this.userForm.value;
-    let temp = [...this.userArray];
-    temp.push(value);
-    this.userArray = [...temp];    
-    this.userDetails.emit(this.userArray);
+    if(this.userForm.valid){
+      let value = this.userForm.value;
+      let temp = [...this.userArray];
+      temp.push(value);
+      this.userArray = [...temp];    
+      this.userDetails.emit(this.userArray);
+    }
+    else{
+      alert("Invalid Form")
+      console.warn(this.userForm.value);
+      
+    }
   }
 
 

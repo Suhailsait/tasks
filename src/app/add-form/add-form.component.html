@@ -9,14 +9,27 @@
           <option value="Mrs">Mrs</option>
         </select>
 
-        <input
-          type="text"
-          class="form-control"
-          name="firstname"
-          formControlName="firstname"
-          placeholder="Firstname"
-          required
-        />
+        <span style="display: flex; flex-direction: column">
+          <input
+            type="text"
+            class="form-control"
+            name="firstname"
+            formControlName="firstname"
+            placeholder="Firstname"
+            required
+          />
+          <small
+            *ngIf="
+              userForm.get('firstname')?.hasError('required') &&
+              userForm.get('firstname')?.touched
+            "
+            class="error"
+          >
+            Firstname is required
+          </small>
+        </span>
+
+        <span style="display: flex; flex-direction: column">
 
         <input
           type="text"
@@ -26,6 +39,16 @@
           placeholder="Lastname"
           required
         />
+        <small
+        *ngIf="
+          userForm.get('lastname')?.hasError('required') &&
+          userForm.get('lastname')?.touched
+        "
+        class="error"
+      >
+        Lastname is required
+      </small>
+      </span>
       </span>
 
       <input
@@ -36,6 +59,14 @@
         placeholder="Email"
         required
       />
+      <small
+      *ngIf="
+        userForm.get('email')?.hasError('required') &&
+        userForm.get('email')?.touched
+      "
+      class="error">
+      Email is required
+    </small>
 
       <input
         type="number"
@@ -45,8 +76,17 @@
         placeholder="Phone Number"
         required
       />
+      <small
+      *ngIf="
+        userForm.get('phoneno')?.hasError('required') &&
+        userForm.get('phoneno')?.touched
+      "
+      class="error">
+      Phone Number is required
+    </small>
 
       <span class="passwords">
+        <span style="display: flex; flex-direction: column">
         <input
           type="password"
           class="form-control"
@@ -55,6 +95,16 @@
           placeholder="Password"
           required
         />
+        <small
+        *ngIf="
+          userForm.get('password')?.hasError('required') &&
+          userForm.get('password')?.touched
+        "
+        class="error">
+        Password is required
+      </small>
+      </span>
+      <span style="display: flex; flex-direction: column">
 
         <input
           type="password"
@@ -64,6 +114,20 @@
           placeholder="Confirm Password"
           required
         />
+        <small
+        *ngIf="
+          userForm.get('confirmpassword')?.hasError('required') &&
+          userForm.get('confirmpassword')?.touched
+        "
+      class="error">
+        Confirm Password is required
+      </small>
+  
+      <small *ngIf="userForm.get('confirmpassword')?.hasError('mismatch')" class="error">
+        Passwords do not match
+      </small>
+      </span>
+
       </span>
       <span class="address">
         <input
@@ -74,14 +138,22 @@
           placeholder="Address 1"
           required
         />
+        <small
+        *ngIf="
+          userForm.get('address1')?.hasError('required') &&
+          userForm.get('address1')?.touched
+        "
+        class="error">
+        Address is required
+      </small>
         <input
           type="text"
           class="form-control"
           name="address2"
           formControlName="address2"
           placeholder="Address 2"
-          required
         />
+
         <input
           type="text"
           class="form-control"
@@ -90,6 +162,14 @@
           placeholder="City"
           required
         />
+        <small
+        *ngIf="
+          userForm.get('city')?.hasError('required') &&
+          userForm.get('city')?.touched
+        "
+        class="error">
+        City is required
+      </small>
         <input
           type="text"
           class="form-control"
@@ -98,6 +178,14 @@
           placeholder="ZIP CODE"
           required
         />
+        <small
+        *ngIf="
+          userForm.get('zipcode')?.hasError('required') &&
+          userForm.get('zipcode')?.touched
+        "
+        class="error">
+        ZIP CODE is required
+      </small>
       </span>
 
       <input
@@ -108,13 +196,36 @@
         placeholder="Date of Birth"
         required
       />
+      <small
+      *ngIf="
+        userForm.get('dob')?.hasError('required') &&
+        userForm.get('dob')?.touched
+      "
+      class="error">
+      Date of Birth is required
+    </small>
       <textarea
         class="form-control"
-        name="dob"
-        formControlName="dob"
+        name="remarks"
+        formControlName="remarks"
         placeholder="REMARKS"
         required
       ></textarea>
+      <small
+      *ngIf="
+        userForm.get('remarks')?.hasError('required') &&
+        userForm.get('remarks')?.touched
+      "
+      class="error">
+      Remarks is required
+    </small>
+      <small
+      *ngIf="
+        userForm.get('remarks')?.hasError('minlength')
+      "
+      class="error">
+      Remarks must have 20 character
+    </small>
 
       <span class="gender">
         <label for="">GENDER :</label>
@@ -128,15 +239,30 @@
           required
         />
         <label for="female">Female</label>
+        <small
+        *ngIf="
+          userForm.get('gender')?.hasError('required') &&
+          userForm.get('gender')?.touched
+        "
+        class="error">
+        Gender is required
+      </small>
       </span>
 
       <span class="terms">
-        <input type="checkbox" id="terms" formControlName="terms" required/>
+        <input type="checkbox" id="terms" formControlName="terms" required />
         <label for="terms"> I accept the terms and conditions</label>
       </span>
+      <small
+      *ngIf="
+        userForm.get('terms')?.hasError('required') &&
+        userForm.get('terms')?.touched
+      "
+      class="error">
+      Accept Terms and Conditions
+    </small>
 
       <button type="submit" class="submit-btn">Submit</button>
     </form>
   </span>
 </section>
-

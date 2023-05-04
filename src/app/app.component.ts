@@ -9,10 +9,13 @@ export class AppComponent {
   title = 'tasks';
   userDetails: any;
 
-  onSubmitForm(value:any) {
-    if (value) {
-      this.userDetails = value;
-      
-    }
+constructor(){}
+
+onSubmitForm(value:any) {
+  if (value) {
+    this.userDetails = value;
+    // console.log(this.userDetails);
+    
   }
+}
 }

@@ -14,9 +14,22 @@
             <th>GENDER</th>
             <th>ACTIONS</th>
         </tr>
-        <tbody>
-            <tr>
+            <tr *ngIf="!userDetail.length">
                 <td colspan="8">NO DATA FOUND</td>
+            </tr>
+        <tbody *ngFor="let item of userDetail;let i=index">
+            <tr>
+                <th>{{i+1}}</th>
+                <td>{{item.selector +" " + item.firstname +" "+ item.lastname}}</td>
+                <td>{{item.email}}</td>
+                <td>{{item.phoneno}}</td>
+                <td>{{item.address1 +" "+ item.address2 +","+ item.city +","+ item.zipcode }}</td>
+                <td>{{item.dob}}</td>
+                <td>{{item.gender}}</td>
+                <td class="custom">
+                    <button>Edit</button>
+                    <button>Delete</button>
+                </td>
             </tr>
         </tbody>
     </table>

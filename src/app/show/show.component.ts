@@ -1,20 +1,22 @@
-import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-show',
   templateUrl: './show.component.html',
   styleUrls: ['./show.component.scss']
 })
-export class ShowComponent implements OnInit,OnChanges {
-  @Input() userDetail:any;
+export class ShowComponent implements OnInit {
+  @Input() userDetail:Array<any> = [];
+  constructor() {
+    console.log("constructor");
+    
+   }
 
-  constructor() { }
-  ngOnChanges(): void {
-  }
-
-  ngOnInit(): void {
-    console.log(this.userDetail);
-
+  ngOnInit(): void { 
+    console.log("ngonit");
+    
+      this.userDetail=[];
+      
   }
 
 }

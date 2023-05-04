@@ -10,7 +10,7 @@ section{
                 }
             input,textarea{
                 width: 35rem;
-                height:4rem;
+                height:3.5rem;
                 border-radius: 0.3rem;
                 padding: 1rem;
             }
@@ -22,12 +22,16 @@ section{
             textarea{
                 height: 7rem;
             }
+            .error{
+                color: red;
+                font-size: 1.2rem;
+              }
             .username{
                 display: flex;
                 gap:1rem;
 
                 .selector{
-                    width:4rem;
+                    width:5rem;
                     height: 2.8rem;
                     border-radius: 0.3rem;
                 }
