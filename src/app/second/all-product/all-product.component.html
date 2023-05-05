@@ -1,0 +1,19 @@
+<section>
+    <span class="head">
+        PRODUCTS LIST
+    </span>
+    <span class="cards">
+        <span class="card"
+        *ngFor="let product of datas"
+        >
+            <img [src]="product.image" alt="">
+            <span class="title">{{product.title}}</span>
+            <span class="price">{{product.price | currency}}</span>
+            <span class="btns">
+                <button class="add-cart">ADD TO CART</button>
+                <button class="view-prod">VIEW PRODUCT</button>
+            </span>
+        </span>
+
+    </span>
+</section>

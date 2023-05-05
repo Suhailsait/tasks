@@ -1,0 +1,96 @@
+main {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  background-color: #ff9f00;
+  padding: 2rem;
+  .cart {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    width: 80rem;
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 1px 2px 0px;
+    .cart-head {
+      text-align: center;
+      font-size: 2rem;
+      font-weight: 700;
+      padding: 1.5rem 0;
+      background-color: #fff;
+    }
+    .products {
+      height: 40rem;
+      overflow: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      .product {
+        display: flex;
+        gap: 2rem;
+        align-items: center;
+        background-color: #fff;
+        padding: 1rem;
+        img {
+          width: 10rem;
+          height: 10rem;
+        }
+        .prod-details {
+          display: flex;
+          flex-direction: column;
+          gap: 0.5rem;
+          font-weight: 600;
+          .title {
+            font-size: 1.6rem;
+          }
+          .category {
+            color: #878787;
+            font-size: 1.3rem;
+            font-weight: 500;
+          }
+          .price {
+            font-size: 1.4rem;
+          }
+          .btn{
+              text-align: end;
+            .remove {
+                width: 15rem;
+                height: 3rem;
+                background-color: red;
+                color: #FFF;
+                border: 0.1rem solid red;
+                &:hover{
+                    color: red;
+                    background-color: #FFF;
+                }
+              }
+          }
+        }
+      }
+      &::-webkit-scrollbar {
+        display: none;
+      }
+    }
+    .btn{
+        text-align: end;
+        padding: 1rem;
+        background-color: #FFF;
+        .place-order{
+            font-size: 1.7rem;
+            font-weight: 600;
+            padding: 1rem 2.5rem;
+            background: #ff9f00;
+            color:#FFF;
+        }
+    }
+  }
+  .cart-amount {
+    width: 35rem;
+    background-color: #fff;
+    .head{
+        color: #878787;
+        font-size: 1.5rem;
+        padding: 2rem 5rem;
+        background-color: #ff9f00;
+        position: relative;
+    }
+  }
+}
