@@ -16,4 +16,13 @@ export class AllProductComponent implements OnInit {
     this.datas = Data;
   }
 
+  addcart(product:any,index:number){
+    
+    
+  }
+
+  viewprod(index:number){
+    
+  }
+
 }

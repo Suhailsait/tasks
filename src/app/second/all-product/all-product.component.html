@@ -4,14 +4,15 @@
     </span>
     <span class="cards">
         <span class="card"
-        *ngFor="let product of datas"
+        *ngFor="let product of datas; let i = index;"
+        [title]="product.description"
         >
             <img [src]="product.image" alt="">
             <span class="title">{{product.title}}</span>
             <span class="price">{{product.price | currency}}</span>
             <span class="btns">
-                <button class="add-cart">ADD TO CART</button>
-                <button class="view-prod">VIEW PRODUCT</button>
+                <button (click)="addcart(product,i)" class="add-cart">ADD TO CART</button>
+                <button (click)="viewprod(i)" class="view-prod">VIEW PRODUCT</button>
             </span>
         </span>
 
