@@ -21,7 +21,8 @@ export class CartComponent implements OnInit {
   }
 
   removeprod(index:any){
-    this.ds.cartremove(index);
+    this.cartamt = this.cartamt - this.cartproduct[index].price;
+    this.ds.cartremove(index);    
   }
 
 }

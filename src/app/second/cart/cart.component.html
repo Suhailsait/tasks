@@ -5,7 +5,7 @@
       <span class="title"> CART </span>
       <span class="count"> ({{cartproduct.length}}) </span>
     </span>
-    <span class="products">
+    <span class="products" *ngIf="cartproduct.length>0">
       <span class="product" *ngFor="let product of cartproduct;let i = index">
         <img
           [src]="product.image"
@@ -23,7 +23,15 @@
         </span>
       </span>
     </span>
-    <span class="btn">
+    <span class="no-product" *ngIf="cartproduct.length==0">
+      <span>
+        Missing cart Items?
+      </span>
+      <span>
+
+      </span>
+    </span>
+    <span class="btn" *ngIf="cartproduct.length!=0">
       <button class="place-order">PLACE ORDER</button>
     </span>
   </section>

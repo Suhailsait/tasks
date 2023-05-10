@@ -11,6 +11,8 @@ import { ProductService } from '../prod/serv/product.service';
 export class ProductComponent implements OnInit {
   id:any
   datas:any;
+  toast:any
+  pop:Boolean = false;
 
 
   constructor(private route:ActivatedRoute,private ds:ProductService) { }
@@ -25,9 +27,17 @@ export class ProductComponent implements OnInit {
     if (product || index) {
       const cartadd = this.ds.addcart(product);
       if (cartadd == 'Added') {
-        alert('Product added to cart');
+        this.toast = "Product Added to cart"
+        this.pop = true;
+        setTimeout(() => {
+          this.pop = false
+        }, 2000);
       } else {
-        alert('Already Existing');
+        this.toast = "Already Existing Product"
+        this.pop = true;
+        setTimeout(() => {
+          this.pop = false
+        }, 2000);
       }
     }
   }

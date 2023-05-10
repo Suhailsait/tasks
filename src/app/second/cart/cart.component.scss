@@ -78,6 +78,14 @@ main {
         display: none;
       }
     }
+    .no-product{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 46rem;
+      font-size: 2rem;
+      font-weight: 700;
+    }
     .btn {
       text-align: end;
       padding: 1rem;

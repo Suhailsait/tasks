@@ -10,6 +10,8 @@ import { Router } from '@angular/router';
 })
 export class AllProductComponent implements OnInit {
   datas: any;
+  toast:any
+  pop:Boolean = false;
 
   constructor(private ds: ProductService,private router:Router) {}
 
@@ -21,10 +23,19 @@ export class AllProductComponent implements OnInit {
     if (product || index) {
       const cartadd = this.ds.addcart(product);
       if (cartadd == 'Added') {
-        alert('Product added to cart');
+        this.toast = "Product Added to cart"
+        this.pop = true;
+        setTimeout(() => {
+          this.pop = false
+        }, 2000);
       } else {
-        alert('Already Existing');
+        this.toast = "Already Existing Product"
+        this.pop = true;
+        setTimeout(() => {
+          this.pop = false
+        }, 2000);
       }
+
     }
   }
 

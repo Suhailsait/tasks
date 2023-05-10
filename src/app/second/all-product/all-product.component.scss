@@ -65,4 +65,15 @@ section {
       }
     }
   }
+  .popup{
+    position: fixed;
+    z-index: 9;
+    bottom:5rem;
+    left:40%;
+    font-size: 3rem;
+    padding: 2rem;
+    background-color: rgba(0, 0, 0, 0.604);
+    color: #FFF;
+    border-radius: 1rem;
+  }
 }
