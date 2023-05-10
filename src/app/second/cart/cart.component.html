@@ -1,23 +1,24 @@
 <main>
+  <button [routerLink]="['']" class="home">Home</button>
   <section class="cart">
     <span class="cart-head">
       <span class="title"> CART </span>
-      <span class="count"> (2) </span>
+      <span class="count"> ({{cartproduct.length}}) </span>
     </span>
     <span class="products">
-      <span class="product">
+      <span class="product" *ngFor="let product of cartproduct;let i = index">
         <img
-          src="https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg"
+          [src]="product.image"
           alt=""
         />
         <span class="prod-details">
           <span class="title"
-            >Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops</span
+            >{{product.title}}</span
           >
-          <span class="category"> men's clothing </span>
-          <span class="price">109.95</span>
+          <span class="category"> {{product.category}} </span>
+          <span class="price">{{product.price | currency}} </span>
           <span class="btn">
-            <button class="remove">REMOVE</button>
+            <button (click)="removeprod(i)" class="remove">REMOVE</button>
           </span>
         </span>
       </span>
@@ -32,8 +33,8 @@
       <span class="amount">
         <ul>
           <li>
-            <span class="price">Price (3 items)</span>
-            <span class="price-amt">10000</span>
+            <span class="price">Price ({{cartproduct.length}} items)</span>
+            <span class="price-amt">{{cartamt | currency}}</span>
           </li>
           <li>
             <span class="delivery">Delivery Charges</span>
@@ -43,7 +44,7 @@
       </span>
       <span class="total">
         <span class="ttl-amt">Total Amount</span>
-        <span class="amt-price">10000</span>
+        <span class="amt-price">{{cartamt | currency}}</span>
       </span> 
     </span>
   </section>

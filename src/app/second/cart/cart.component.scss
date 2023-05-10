@@ -3,6 +3,13 @@ main {
   justify-content: center;
   gap: 2rem;
   padding: 2rem;
+  .home{
+    width: 15rem;
+    height: 4rem;
+    background: #0f463b;
+    color:#FFF;
+    font-size: 1.6rem;
+  }
   .cart {
     display: flex;
     flex-direction: column;
@@ -24,7 +31,8 @@ main {
       gap: 1rem;
       .product {
         display: flex;
-        gap: 2rem;
+        justify-content:flex-start;
+        gap: 5rem;
         align-items: center;
         background-color: #fff;
         padding: 1rem;
@@ -38,6 +46,7 @@ main {
           flex-direction: column;
           gap: 0.5rem;
           font-weight: 600;
+          width: 40rem;
           .title {
             font-size: 1.6rem;
           }
@@ -106,7 +115,8 @@ main {
           border-bottom: 0.1rem solid black;
           li{
             display: flex;
-            gap: 10rem;
+            justify-content: space-between;
+            width: 30rem;
             .delivery-status{
               color: rgb(240, 34, 34);
             }

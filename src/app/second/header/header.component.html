@@ -4,11 +4,11 @@
            SUHAIL'S STORE
         </span>
     </aside>
-    <aside class="cart-section">
+    <aside class="cart-section" [routerLink]="['cart']">
         <span class="cart">
             CART
             <span class="cart-count">
-                {{cartCount}}
+                {{cartcount.length}}
             </span>
         </span>
     </aside>

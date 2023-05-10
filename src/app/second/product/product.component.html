@@ -1,34 +1,32 @@
 <section>
   <span class="home">
-    <button class="back">
+    <button class="back" [routerLink]="['']">
       <span class="material-icons"> arrow_back </span>
       HOME
     </button>
   </span>
   <span class="card">
-    <span class="product">
+    <span class="product" *ngFor="let data of datas;let i = index">
       <img
-        src="https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg"
+        [src]="data.image"
         alt=""
       />
       <span class="prod-details">
         <span class="title"
-          >Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops</span
+          >{{data.title}}</span
         >
         <span class="category"> men's clothing </span>
         <span class="description"
-          >Your perfect pack for everyday use and walks in the forest. Stash
-          your laptop (up to 15 inches) in the padded sleeve, your
-          everyday</span
+          >{{data.description}}</span
         >
-        <span class="price">109.95</span>
+        <span class="price">{{data.price | currency}}</span>
         <span class="rating">
           <span class="rate"
-            >3.9 <span class="material-icons"> star_rate </span></span
+            >{{data.rating.rate}} <span class="material-icons"> star_rate </span></span
           >
-          <span class="ratings">120 ratings</span>
+          <span class="ratings">{{data.rating.count}} ratings</span>
         </span>
-            <button class="add-cart">ADD TO CART</button>    
+            <button (click)="addcart(data,i)" class="add-cart">ADD TO CART</button>    
       </span>
     </span>
   </span>

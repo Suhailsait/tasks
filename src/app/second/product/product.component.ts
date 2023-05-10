@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import * as  Data  from '../datas';
+import { ActivatedRoute } from '@angular/router';
+import { ProductService } from '../prod/serv/product.service';
 
 
 @Component({
@@ -8,15 +9,27 @@ import * as  Data  from '../datas';
   styleUrls: ['./product.component.scss']
 })
 export class ProductComponent implements OnInit {
-
+  id:any
   datas:any;
 
 
-  constructor() { }
+  constructor(private route:ActivatedRoute,private ds:ProductService) { }
 
   ngOnInit(): void {
-    this.datas = Data;
+    this.id =  this.route.snapshot.queryParamMap.get('id');
+    this.datas = this.ds.viewprod(this.id)
+    
+  }
 
+  addcart(product: any, index: number) {
+    if (product || index) {
+      const cartadd = this.ds.addcart(product);
+      if (cartadd == 'Added') {
+        alert('Product added to cart');
+      } else {
+        alert('Already Existing');
+      }
+    }
   }
 
 }

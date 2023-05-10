@@ -12,9 +12,8 @@
             <span class="price">{{product.price | currency}}</span>
             <span class="btns">
                 <button (click)="addcart(product,i)" class="add-cart">ADD TO CART</button>
-                <button (click)="viewprod(i)" class="view-prod">VIEW PRODUCT</button>
+                <button (click)="viewprod(product.id)" class="view-prod">VIEW PRODUCT</button>
             </span>
         </span>
-
     </span>
 </section>
