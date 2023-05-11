@@ -60,20 +60,9 @@ section {
       }
       &:hover{
         box-shadow: rgba(43, 70, 222, 0.35) 4px 5px 15px;
-        transform: scale(1.01);
-        transition-duration: 1s;
+        transform: scale(1.02);
+        transition-duration: 0.5s;
       }
     }
-  }
-  .popup{
-    position: fixed;
-    z-index: 9;
-    bottom:5rem;
-    left:40%;
-    font-size: 3rem;
-    padding: 2rem;
-    background-color: rgba(0, 0, 0, 0.604);
-    color: #FFF;
-    border-radius: 1rem;
   }
 }

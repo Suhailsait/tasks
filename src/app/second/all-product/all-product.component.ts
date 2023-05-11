@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Data } from '../datas';
 import { ProductService } from '../prod/serv/product.service';
 import { Router } from '@angular/router';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-all-product',
@@ -13,7 +14,7 @@ export class AllProductComponent implements OnInit {
   toast:any
   pop:Boolean = false;
 
-  constructor(private ds: ProductService,private router:Router) {}
+  constructor(private ds: ProductService,private router:Router,private snackbar:MatSnackBar) {}
 
   ngOnInit(): void {
     this.datas = this.ds.viewallprod();
@@ -23,17 +24,13 @@ export class AllProductComponent implements OnInit {
     if (product || index) {
       const cartadd = this.ds.addcart(product);
       if (cartadd == 'Added') {
-        this.toast = "Product Added to cart"
-        this.pop = true;
-        setTimeout(() => {
-          this.pop = false
-        }, 2000);
+        this.snackbar.open('Product Added to Cart','close',{
+          duration:2*1000
+        })
       } else {
-        this.toast = "Already Existing Product"
-        this.pop = true;
-        setTimeout(() => {
-          this.pop = false
-        }, 2000);
+        this.snackbar.open('Already Existing Product','close',{
+          duration:2*1000
+        })
       }
 
     }
