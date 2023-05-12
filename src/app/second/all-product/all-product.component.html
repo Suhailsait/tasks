@@ -1,20 +1,32 @@
 <section>
-    <span class="head">
-        PRODUCTS LIST
+  <span class="head"> PRODUCTS LIST </span>
+  <span class="cards">
+    <span
+      class="card"
+      *ngFor="let product of datas; let i = index"
+      [title]="product.description"
+    >
+      <img [src]="product.image" alt="" />
+      <span class="title">{{ product.title }}</span>
+      <span class="price">{{ product.price | currency }}</span>
+      <span class="btns">
+        <button (click)="addcart(product, i)" class="add-cart">
+          ADD TO CART
+        </button>
+        <button (click)="viewprod(product.id)" class="view-prod">
+          VIEW PRODUCT
+        </button>
+      </span>
     </span>
-    <span class="cards">
-        <span class="card"
-        *ngFor="let product of datas; let i = index;"
-        [title]="product.description"
-        >
-            <img [src]="product.image" alt="">
-            <span class="title">{{product.title}}</span>
-            <span class="price">{{product.price | currency}}</span>
-            <span class="btns">
-                <button (click)="addcart(product,i)" class="add-cart">ADD TO CART</button>
-                <button (click)="viewprod(product.id)" class="view-prod">VIEW PRODUCT</button>
-            </span>
-        </span>
-    </span>
-
+  </span>
+  <mat-paginator
+  (page)="handlePageEvent($event)"
+    [length]="datas.length"
+    [pageSize]="pageSize"
+    [pageSizeOptions]="pageSizeOptions"
+    [pageIndex]="pageIndex"
+    [showFirstLastButtons]="showFirstLastButtons"
+    aria-label="Select page"
+  >
+  </mat-paginator>
 </section>

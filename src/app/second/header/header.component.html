@@ -1,15 +1,18 @@
 <header>
-    <aside class="heading-section">
-        <span class="head" [routerLink]="['']">
-           SUHAIL'S STORE
-        </span>
-    </aside>
-    <aside class="cart-section" [routerLink]="['cart']">
-        <span class="cart">
-            CART
-            <span class="cart-count">
+  <aside class="heading-section">
+    <span class="head" [routerLink]="['']"> SUHAIL'S STORE </span>
+  </aside>
+  <aside
+    class="cart-section"
+    [routerLink]="['cart']"
+    matBadge="{{ cartcount.length }}"
+    matBadgePosition="above"
+  >
+    <span class="cart">
+      CART
+      <!-- <span class="cart-count">
                 {{cartcount.length}}
-            </span>
-        </span>
-    </aside>
+            </span> -->
+    </span>
+  </aside>
 </header>

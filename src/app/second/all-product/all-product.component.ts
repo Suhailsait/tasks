@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { Data } from '../datas';
 import { ProductService } from '../prod/serv/product.service';
 import { Router } from '@angular/router';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { PageEvent } from '@angular/material/paginator';
 
 @Component({
   selector: 'app-all-product',
@@ -11,13 +11,30 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 })
 export class AllProductComponent implements OnInit {
   datas: any;
-  toast:any
-  pop:Boolean = false;
+
+  length:any;
+  pageSize = 5;
+  pageIndex = 0;
+  pageSizeOptions = [5, 10, 15];
+
+  showPageSizeOptions = true;
+  showFirstLastButtons = true;
+
+  pageEvent:any =  PageEvent;
 
   constructor(private ds: ProductService,private router:Router,private snackbar:MatSnackBar) {}
 
   ngOnInit(): void {
     this.datas = this.ds.viewallprod();
+  }
+
+  handlePageEvent(e: PageEvent) {
+    console.log(e);
+    
+    this.pageEvent = e;
+    this.length = e.length;
+    this.pageSize = e.pageSize;
+    this.pageIndex = e.pageIndex;
   }
 
   addcart(product: any, index: number) {
